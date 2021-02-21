@@ -7,9 +7,6 @@ import com.example.coupedemonde1.entities.Arbitre;
 
 public interface ArbitreService {
 	
-	
-	
-	
 	public Arbitre getArbitreById(long id);
 
 	public ArrayList<Arbitre> getallarbitres();

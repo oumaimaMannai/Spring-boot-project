@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.example.coupedemonde1.Repository.ArbitreRepository;
 
 import com.example.coupedemonde1.entities.Arbitre;
-
+import com.example.coupedemonde1.entities.File;
 import com.example.coupedemonde1.service.ArbitreService;
 @Service
 public class ArbitreServiceimpl implements ArbitreService{
@@ -39,7 +39,7 @@ public void saveArbitre(Arbitre signUpRequest) {
 				arbitre.setNom(signUpRequest.getNom());
 				arbitre.setPrenom(signUpRequest.getPrenom());
 				arbitre.setNiveau(signUpRequest.getNiveau());
-
+				arbitre.setImage(signUpRequest.getImage());
 			
 				Arbitrerepository.save(arbitre);
 		Arbitrerepository.save(arbitre);

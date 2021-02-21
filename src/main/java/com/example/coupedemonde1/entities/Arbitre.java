@@ -2,7 +2,9 @@ package com.example.coupedemonde1.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,17 +21,32 @@ public class Arbitre implements Serializable{
 	private String prenom;
 	private String niveau;
 	
-	@OneToOne
-	@JoinColumn(name = "image_id", referencedColumnName = "id")
-	private String image;
+	@OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@JoinColumn(name = "image_id")
+	private File image;
 	
-	public Arbitre(String nom, String prenom, String niveau,String image) {
+
+	public Arbitre(long id, String nom, String prenom, String niveau, File image) {
 		super();
+		this.id = id;
 		this.nom = nom;
 		this.prenom = prenom;
 		this.niveau = niveau;
 		this.image = image;
 	}
+
+
+
+	public File getImage() {
+		return image;
+	}
+
+
+
+	public void setImage(File image) {
+		this.image = image;
+	}
+
 
 
 	public Arbitre() {
@@ -45,16 +62,6 @@ public class Arbitre implements Serializable{
 	}
 
 	
-
-	public String getImage() {
-		return image;
-	}
-
-
-	public void setImage(String image) {
-		this.image = image;
-	}
-
 
 	public long getId() {
 		return id;

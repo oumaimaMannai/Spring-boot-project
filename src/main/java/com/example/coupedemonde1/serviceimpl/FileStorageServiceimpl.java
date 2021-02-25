@@ -1,6 +1,7 @@
 package com.example.coupedemonde1.serviceimpl;
 
 import java.io.IOException;
+import java.util.stream.Stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -10,7 +11,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.example.coupedemonde1.Repository.FileRepository;
 import com.example.coupedemonde1.entities.File;
 import com.example.coupedemonde1.service.FileStorageService;
-import com.sun.el.stream.Stream;
+
 
 @Service
 public class FileStorageServiceimpl implements FileStorageService{
@@ -28,7 +29,7 @@ public class FileStorageServiceimpl implements FileStorageService{
 		  return fileRepository.findById(id).get();
 	  }
 	  
-	  public Stream getAllFiles() {
-		  return (Stream) fileRepository.findAll().stream();
+	  public Stream<File> getAllFiles() {
+		  return fileRepository.findAll().stream();
 	  }
 }
